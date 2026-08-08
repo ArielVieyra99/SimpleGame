@@ -1,0 +1,63 @@
+MAKING EVERYTHING MODULAR --- CURRENTLY MADE GAME LOOP WHILE game is getwindowOpen
+Also make sure to make it turn around for the
+NEW IDEA: Duckling in a pond					- done
+
+/Users/arielvieyra/Developer/CppCode/SimpleGame/Game.h
+
+
+ake s
+
+-
+]ure to add a function to handle initial positioning and color for
+t}}}
+
+
+
+
+
+
+
+
+
+
+
+
+}}}}}{{}}}
+}
+]
+
+}
+
+}
+
+}
+}
+he main characters
+
+
+
+
+
+
+maybe a bull would be better 
+
+something trying to rope the cow like a cowboy
+
+maybe you are the cowboy trying to rope cows
+
+
+Try to make the characters animated 
+
+How to make pixel arts for these games
+
+
+
+
+Make coordinates for the collisions of the pond (broken into different triangles)
+Coordinates pond:
+
+	Triangle 1
+	77,181	256,57	290,213
+	
+	Triangle 2
+	

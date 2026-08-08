@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build with SFML",
+            "type": "shell",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-std=c++17",
+                "main.cpp",
+                "game.cpp",
+                "player.cpp",
+                "-I/opt/homebrew/include",
+                "-L/opt/homebrew/lib",
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-system",
+                "-o",
+                "smallgame"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run Game",
+            "type": "shell",
+            "dependsOrder": "sequence",
+            "command": "osascript",
+            "args": [
+                "-e",
+                "tell application \"Terminal\" to do script \"cd \\\"${workspaceFolder}\\\" && ./smallgame\""
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
