@@ -1,10 +1,10 @@
-#pragma once
 #include "Player.h"
 #include "Game.h"
 
 
 Player::Player() {
     initTextures();
+    initSprite();
 
 }
 
@@ -41,19 +41,24 @@ void Player::handleMovement(float delta) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
     {
         playersprite->move({-(speed * delta), 0});
+        playersprite->setTexture(texturestand);
+        
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
     {
         playersprite->move({speed * delta, 0});
+        playersprite->setTexture(texturestandright);
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
     {
         playersprite->move({0, speed * delta});
+        
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
     {
         playersprite->move({0, -(speed * delta)});
+        playersprite->setTexture(textureback);
     }
 }

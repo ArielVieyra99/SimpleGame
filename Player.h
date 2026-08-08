@@ -1,7 +1,6 @@
 #pragma once
 #include "Character.h"
-#include "Player.h"
-#include "Game.h"
+    
 
 class Player : public Character {
     private:
@@ -11,7 +10,7 @@ class Player : public Character {
     sf::Texture texturewaterright;
     sf::Texture textureback;
     sf::Texture texturebackwater;
-    std::optional<sf::Sprite> playersprite;
+    
 
     void initTextures();
     void initSprite();
@@ -20,6 +19,7 @@ class Player : public Character {
     public:
     Player();
     int score, credits;
+    std::optional<sf::Sprite> playersprite;
 
     void handleMovement (float delta);
     sf::Texture getTexture();

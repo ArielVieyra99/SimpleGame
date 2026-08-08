@@ -7,7 +7,7 @@
 void Game::initVariables()
 {
 
-    Player player;
+    
 }
 
 void Game::initWindow() {
@@ -54,7 +54,7 @@ void Game::update()
     //handle movement
     delta = clock.restart().asSeconds();
     //Why not able to check this??
-    player.handlePlayerMovement(delta);
+    player.handleMovement(delta);
     this->pollEvents();
 
 }
@@ -65,7 +65,7 @@ void Game::render()
     window.draw(*pond);
     window.draw(tri1);
     window.draw(tri2);
-    window.draw(player);
+    window.draw(*player.playersprite);
     window.display();
 }
 

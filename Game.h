@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <SFML/System.hpp>
+#include "Player.h"
 
 
 class Game {
@@ -15,6 +16,7 @@ class Game {
     sf::VertexArray tri1, tri2;
     sf::Font font;
     sf::Clock clock;
+    Player player;
     
 
 
@@ -33,7 +35,7 @@ class Game {
     public:
         //Contructor and Desctructor
         Game();
-        virtual ~Game();
+        // virtual ~Game();
 
         //Accessors
         const bool running() const;
