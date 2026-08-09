@@ -4,8 +4,9 @@
 
 
 class Character {
-    int health, speed;
+    
 public:
+    int health, speed;
     //variables
 
     //functions

@@ -17,6 +17,9 @@ class Game {
     sf::Font font;
     sf::Clock clock;
     Player player;
+    float delta;
+    float mouseposx, mouseposy;
+    sf::VertexArray tri3{sf::PrimitiveType::LineStrip};
     
 
 
@@ -28,21 +31,16 @@ class Game {
     void handlePlayerMovement();
     sf::VertexArray makeTriangle2();
     sf::VertexArray makeTriangle();
-
-
-
+    void setPondArea();
 
     public:
         //Contructor and Desctructor
         Game();
         // virtual ~Game();
-
         //Accessors
-        const bool running() const;
-        float delta;
 
         //Functions
-
+        const bool running() const;
         void update();
         void render();
         void pollEvents();

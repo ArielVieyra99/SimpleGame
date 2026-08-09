@@ -6,7 +6,7 @@
 
 void Game::initVariables()
 {
-
+    player.health = 100;
     
 }
 
@@ -43,6 +43,22 @@ void Game::pollEvents()
                 window.close();
             }
 
+            if (event->getIf<sf::Event::MouseButtonPressed>()) {
+                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl)) {
+                    std::cout << "Mouse was clicked (left click)" << std::endl;
+                    auto pos = sf::Mouse::getPosition(window);
+                    tri3.append(
+                        sf::Vertex {
+                            sf::Vector2f (
+                                static_cast <float> (pos.x),
+                                static_cast <float> (pos.y)
+                            ),
+                            sf::Color::Red
+                        }
+                    );
+                }
+            }
+
             
         }
 }
@@ -63,8 +79,9 @@ void Game::render()
 {
     window.clear();
     window.draw(*pond);
-    window.draw(tri1);
-    window.draw(tri2);
+    // window.draw(tri1);
+    // window.draw(tri2);
+    window.draw(tri3);
     window.draw(*player.playersprite);
     window.display();
 }
@@ -120,3 +137,9 @@ void Game::initSprites() {
     static_cast<float>((window.getSize().y)/2.0)});
     pond->setScale({2.5,2.5});
 }
+
+
+void setPondArea(sf::VertexArray& tri3) {
+    
+}
+
