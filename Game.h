@@ -13,7 +13,8 @@ class Game {
     sf::VideoMode videoMode;
     sf::Texture pondtexture;
     std::optional <sf::Sprite> pond;
-    sf::VertexArray tri1, tri2;
+    sf::VertexArray tri1{sf::PrimitiveType::LineStrip,3};
+    sf::VertexArray tri2{sf::PrimitiveType::LineStrip,3};
     sf::Font font;
     sf::Clock clock;
     Player player;
@@ -29,8 +30,7 @@ class Game {
     void initTextures ();
     void initSprites();
     void handlePlayerMovement();
-    sf::VertexArray makeTriangle2();
-    sf::VertexArray makeTriangle();
+    void makeTriangles();
     void setPondArea();
 
     public:

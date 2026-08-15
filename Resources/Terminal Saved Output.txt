@@ -1,0 +1,42 @@
+Last login: Sun Aug  9 16:33:24 on ttys000
+cd "/Users/arielvieyra/Developer/CppCode/SimpleGame" && ./smallgame             
+arielvieyra@Ariels-MacBook-Air ~ % cd "/Users/arielvieyra/Developer/CppCode/SimpleGame" && ./smallgame
+Failed to load image
+    Provided path: Resources/ducklingwaterright.png
+    Absolute path: /Users/arielvieyra/Developer/CppCode/SimpleGame/Resources/ducklingwaterright.png
+Reason: No such file or directory
+Failed to load Resources/ducklingwater.png
+Mouse was clicked (left click)
+60	185
+
+Mouse was clicked (left click)
+198	71
+
+Mouse was clicked (left click)
+308	221
+
+Mouse was clicked (left click)
+61	187
+
+Mouse was clicked (left click)
+199	73
+
+Mouse was clicked (left click)
+394	83
+
+Mouse was clicked (left click)
+307	215
+
+Mouse was clicked (left click)
+548	216
+
+Mouse was clicked (left click)
+395	85
+
+Mouse was clicked (left click)
+313	49
+
+Mouse was clicked (left click)
+199	72
+
+

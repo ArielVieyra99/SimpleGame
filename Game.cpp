@@ -23,8 +23,7 @@ Game::Game() {
     initWindow();
     initTextures();
     initSprites();
-    tri1 = makeTriangle();
-    tri2 = makeTriangle2();
+    makeTriangles();
     window.setFramerateLimit(60);
 }
 
@@ -47,6 +46,7 @@ void Game::pollEvents()
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl)) {
                     std::cout << "Mouse was clicked (left click)" << std::endl;
                     auto pos = sf::Mouse::getPosition(window);
+                    std::cout << pos.x << "\t" << pos.y << "\n\n";
                     tri3.append(
                         sf::Vertex {
                             sf::Vector2f (
@@ -72,12 +72,16 @@ void Game::update()
     //Why not able to check this??
     player.handleMovement(delta);
     this->pollEvents();
+    if(inTriangle(tri1[0].position,tri1[1].position, tri1[2].position,player.playersprite->getposition())) {
+        std::cout << "the player is in the triangle" << std::endl;
+    }
+
 
 }
 
 void Game::render()
 {
-    window.clear();
+    window.clear(sf::Color(126, 163, 105));
     window.draw(*pond);
     // window.draw(tri1);
     // window.draw(tri2);
@@ -86,34 +90,22 @@ void Game::render()
     window.display();
 }
 
+void Game::makeTriangles() {
+    tri1[0].position = {51,192};
+    tri1[1].position = {291,55};
+    tri1[2].position = {309,224};
 
-sf::VertexArray Game::makeTriangle() {
-    sf::VertexArray outline(sf::PrimitiveType::LineStrip, 4);
-    outline[0].position = {77,181};
-    outline[1].position = {256,57};
-    outline[2].position = {290,213};
-    outline[3].position = {77,181};
+    tri1[0].color = sf::Color::Red;
+    tri1[1].color = sf::Color::Red;
+    tri1[2].color = sf::Color::Red;
 
-    outline[0].color = sf::Color::Red;
-    outline[1].color = sf::Color::Red;
-    outline[2].color = sf::Color::Red;
-    outline[3].color = sf::Color::Red;
-    return outline;
-}
+    tri2[0].position = {51,192};
+    tri2[1].position = {291,55};
+    tri2[2].position = {139, 88};
 
-
-sf::VertexArray Game::makeTriangle2() {
-    sf::VertexArray outline(sf::PrimitiveType::LineStrip, 4);
-    outline[0].position = {256,57};
-    outline[1].position = {77,181};
-    outline[2].position = {134, 102};
-    outline[3].position = {256, 57};
-
-    outline[0].color = sf::Color::Red;
-    outline[1].color = sf::Color::Red;
-    outline[2].color = sf::Color::Red;
-    outline[3].color = sf::Color::Red;
-    return outline;
+    tri2[0].color = sf::Color::Red;
+    tri2[1].color = sf::Color::Red;
+    tri2[2].color = sf::Color::Red;
 }
 
 void Game::initTextures () {
@@ -141,5 +133,19 @@ void Game::initSprites() {
 
 void setPondArea(sf::VertexArray& tri3) {
     
+}
+float cross(sf::Vector2f a, sf::Vector2f b) {
+    
+    return a.x * b.y - a.y * b.x;
+}
+
+bool inTriangle(sf::Vector2f& a, sf::Vector2f& b, sf::Vector2f& c, sf::Vector2f p) {
+
+    float c1 = cross(b-a, p-a);
+    float c2 = cross(c-b, p-b);
+    float c3 = cross(a-c, p-c);
+
+    return (c1 >= 0 && c2 >= 0 && c3 >= 0) ||
+           (c1 <= 0 && c2 <= 0 && c3 <= 0);
 }
 

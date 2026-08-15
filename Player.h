@@ -10,6 +10,7 @@ class Player : public Character {
     sf::Texture texturewaterright;
     sf::Texture textureback;
     sf::Texture texturebackwater;
+    sf::Texture texturefront;
     
 
     void initTextures();

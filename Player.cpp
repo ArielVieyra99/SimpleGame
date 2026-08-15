@@ -27,6 +27,9 @@ void Player::initTextures () {
     if(!texturebackwater.loadFromFile("Resources/ducklingswimmingback.png")) {
         std::cerr << "Failed to load Resources/ducklingswimmingback.png\n";
     }
+    if(!texturefront.loadFromFile("Resources/Front.png")) {
+        std::cerr << "Failed to load Resources/Front.png\n";
+    }
 }
 
 void Player::initSprite()
@@ -54,6 +57,7 @@ void Player::handleMovement(float delta) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
     {
         playersprite->move({0, speed * delta});
+        playersprite->setTexture(texturefront);
         
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
