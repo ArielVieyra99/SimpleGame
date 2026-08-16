@@ -6,6 +6,7 @@
 #include "Player.h"
 
 
+
 class Game {
     private:
 
@@ -13,8 +14,8 @@ class Game {
     sf::VideoMode videoMode;
     sf::Texture pondtexture;
     std::optional <sf::Sprite> pond;
-    sf::VertexArray tri1{sf::PrimitiveType::LineStrip,3};
-    sf::VertexArray tri2{sf::PrimitiveType::LineStrip,3};
+    sf::VertexArray tri1{sf::PrimitiveType::LineStrip,4};
+    sf::VertexArray tri2{sf::PrimitiveType::LineStrip,4};
     sf::Font font;
     sf::Clock clock;
     Player player;
