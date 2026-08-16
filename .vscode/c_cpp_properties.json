@@ -4,10 +4,10 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/opt/homebrew/include/"
+                "/opt/homebrew/include"
             ],
             "compilerPath": "/usr/bin/clang++",
-            "cppStandard": "c++26",
+            "cppStandard": "c++17",
             "intelliSenseMode": "macos-clang-arm64"
         }
     ],

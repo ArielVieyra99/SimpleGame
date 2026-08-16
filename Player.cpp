@@ -19,7 +19,7 @@ void Player::initTextures () {
         std::cerr << "Failed to load Resources/ducklingwater.png\n";
     }
     if(!texturewaterright.loadFromFile("Resources/ducklingwaterright.png")) {
-        std::cerr << "Failed to load Resources/ducklingwater.png\n";
+        std::cerr << "Failed to load Resources/ducklingwaterright.png\n";
     }
     if(!textureback.loadFromFile("Resources/duckstandingback.png")) {
         std::cerr << "Failed to load Resources/duckstandingback.png\n";
