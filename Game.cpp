@@ -7,8 +7,10 @@ float cross(sf::Vector2f a, sf::Vector2f b) {
     return a.x * b.y - a.y * b.x;
 }
 
-bool inTriangle(sf::Vector2f& a, sf::Vector2f& b, sf::Vector2f& c, sf::Vector2f p) {
-
+bool inTriangle(sf::VertexArray& tri, sf::Vector2f p) {
+    sf::Vector2f a = tri[0].position;
+    sf::Vector2f b = tri[1].position;
+    sf::Vector2f c = tri[2].position;
     float c1 = cross(b-a, p-a);
     float c2 = cross(c-b, p-b);
     float c3 = cross(a-c, p-c);
@@ -87,7 +89,7 @@ void Game::update()
         shouldCheck = true;
     }
     if (shouldCheck) {
-        if(inTriangle(tri1[0].position,tri1[1].position, tri1[2].position,player.playersprite->getPosition())) {
+        if(inTriangle(tri1, player.playersprite->getPosition())) {
             std::cout << "the player is in the triangle" << std::endl;
         }
         else {
