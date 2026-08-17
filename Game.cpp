@@ -2,12 +2,8 @@
 #include "Character.h"
 #include "Player.h"
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
 
-//Private Functions
 float cross(sf::Vector2f a, sf::Vector2f b) {
-    
     return a.x * b.y - a.y * b.x;
 }
 
@@ -20,7 +16,7 @@ bool inTriangle(sf::Vector2f& a, sf::Vector2f& b, sf::Vector2f& c, sf::Vector2f 
     return (c1 >= 0 && c2 >= 0 && c3 >= 0) ||
            (c1 <= 0 && c2 <= 0 && c3 <= 0);
 }
-sf::
+
 void Game::initVariables()
 {
     player.health = 100;
@@ -30,7 +26,8 @@ void Game::initVariables()
 void Game::initWindow() {
     window.create(sf::VideoMode({600, 400}), "Test 2");
 }
-std::
+
+
 Game::Game() {
     initVariables();
     initWindow();
