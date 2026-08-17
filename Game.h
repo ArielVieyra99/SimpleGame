@@ -6,22 +6,22 @@
 #include "Player.h"
 
 
-
 class Game {
     private:
-
     sf::RenderWindow window;
     sf::VideoMode videoMode;
     sf::Texture pondtexture;
     std::optional <sf::Sprite> pond;
     sf::VertexArray tri1{sf::PrimitiveType::LineStrip,4};
     sf::VertexArray tri2{sf::PrimitiveType::LineStrip,4};
+    sf::VertexArray tri3{sf::PrimitiveType::LineStrip,4};
+    sf::VertexArray tri4{sf::PrimitiveType::LineStrip,4};
     sf::Font font;
     sf::Clock clock;
     Player player;
     float delta;
     float mouseposx, mouseposy;
-    sf::VertexArray tri3{sf::PrimitiveType::LineStrip};
+    sf::VertexArray tri6{sf::PrimitiveType::LineStrip};
     
 
 
@@ -33,6 +33,8 @@ class Game {
     void handlePlayerMovement();
     void makeTriangles();
     void setPondArea();
+    void inPondBounds();
+    void setPondBounds();
 
     public:
         //Contructor and Desctructor

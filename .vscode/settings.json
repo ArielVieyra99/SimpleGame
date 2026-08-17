@@ -1,3 +1,6 @@
 {
-    "workbench.colorTheme": "Light 2026"
+    
+    "workbench.colorTheme": "Light 2026",
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.intelliSenseEngineFallback": "enabled"
 }
