@@ -13,6 +13,50 @@ t}}}
 
 
 
+### New notes
+
+
+To Do:
+Make all triangles test for in bounds
+Make textures for water only work in bounds of pond triangles
+
+Check why im getting Failed to load Resources/ducklingwater.png error name was set wrong in finder
+Make improvements to call the in triangle function for all triangles and be sure its clean
+Can check if player is in triangle 1
+Compensate for players size in inTriangle function
+
+Make coordinates for the collisions of the pond (broken into different triangles)
+
+
+MAKING EVERYTHING MODULAR --- CURRENTLY MADE GAME LOOP WHILE game is 
+Making the texture change depending on what direction is being faced
+NEW IDEA: Duckling in a pond
+
+Make sure to add a function to handle initial positioning and color for
+Maybe a bull would be better 
+something trying to rope the cow like a cowboy
+maybe you are the cowboy trying to rope cows
+
+Try to make the characters animated 
+
+How to make pixel arts for these games
+	
+	
+Sat 8 Aug
+Making a function to check the perimter of the pond
+Maybe make sure to divide in triangles, makes a new trinagle every 3 points given
+Every click add a new points to triangle
+
+
+A
+
+C
+
+B
+
+
+
+
 
 
 
