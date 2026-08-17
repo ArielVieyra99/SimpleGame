@@ -17,6 +17,8 @@ t}}}
 
 
 To Do:
+Make another clearly vivivle point to check the the functions are working as expected, while i fix the function to account for the metrics
+of the sprite and the texture
 Make all triangles test for in bounds
 Make textures for water only work in bounds of pond triangles
 

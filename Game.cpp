@@ -84,19 +84,16 @@ void Game::update()
     //Why not able to check this??
     player.handleMovement(delta);
     this->pollEvents();
-    bool shouldCheck;
+    
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl)) {
-        shouldCheck = true;
-    }
-    if (shouldCheck) {
-        if(inTriangle(tri1, player.playersprite->getPosition())) {
+        if(inTriangle(tri1, player.playersprite->getPosition())
+            || inTriangle(tri2, player.playersprite->getPosition())) {
             std::cout << "the player is in the triangle" << std::endl;
         }
         else {
             std::cout << "the player is not in the triangle" << std::endl;
         }
     }
-    shouldCheck = false;
 
 }
 
@@ -105,7 +102,7 @@ void Game::render()
     window.clear(sf::Color(126, 163, 105));
     window.draw(*pond);
     window.draw(tri1);
-    // window.draw(tri2);
+    window.draw(tri2);
     window.draw(tri3);
     window.draw(*player.playersprite);
     window.display();
