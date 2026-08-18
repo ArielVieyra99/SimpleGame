@@ -22,6 +22,9 @@ class Game {
     float delta;
     float mouseposx, mouseposy;
     sf::VertexArray tri6{sf::PrimitiveType::LineStrip};
+    sf::RectangleShape rectangle;
+
+
     
 
 
@@ -35,6 +38,7 @@ class Game {
     void setPondArea();
     void inPondBounds();
     void setPondBounds();
+    void handleMovement(float delta);
 
     public:
         //Contructor and Desctructor

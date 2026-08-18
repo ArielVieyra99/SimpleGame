@@ -21,6 +21,9 @@ bool inTriangle(sf::VertexArray& tri, sf::Vector2f p) {
 void Game::initVariables()
 {
     player.health = 100;
+    rectangle.setSize({25, 25});
+    rectangle.setPosition({100,100});
+    rectangle.setFillColor(sf::Color::Blue);
     
 }
 
@@ -68,8 +71,8 @@ void Game::update()
     
     //handle movement
     delta = clock.restart().asSeconds();
-    //Why not able to check this??
-    player.handleMovement(delta);
+    // player.handleMovement(delta);
+    handleMovement(delta);
     this->pollEvents();
     
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl)) {
@@ -86,6 +89,7 @@ void Game::render()
     window.draw(tri2);
     window.draw(tri3);
     window.draw(tri4);
+    window.draw(rectangle);
     window.draw(*player.playersprite);
     window.display();
 }
@@ -184,4 +188,26 @@ void Game::makeTriangles() {
     tri4[2].color = sf::Color::Red;
     tri4[3].color = sf::Color::Red;
 
+}
+void Game::handleMovement(float delta) {
+    int speed = 150;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+    {
+        rectangle.move({-(speed * delta), 0});
+        
+    }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+    {
+        rectangle.move({speed * delta, 0});
+    }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
+    {
+        rectangle.move({0, speed * delta});        
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
+    {
+        rectangle.move({0, -(speed * delta)});
+    }
 }
