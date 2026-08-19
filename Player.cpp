@@ -23,45 +23,65 @@ void Player::initTextures () {
     if(!textureback.loadFromFile("Resources/duckstandingback.png")) {
         std::cerr << "Failed to load Resources/duckstandingback.png\n";
     }
-    if(!texturebackwater.loadFromFile("Resources/ducklingswimmingback.png")) {
+    if(!texturewaterback.loadFromFile("Resources/ducklingswimmingback.png")) {
         std::cerr << "Failed to load Resources/ducklingswimmingback.png\n";
     }
     if(!texturefront.loadFromFile("Resources/Front.png")) {
         std::cerr << "Failed to load Resources/Front.png\n";
     }
+    if(!texturewaterfront.loadFromFile("Resources/frontwater.png")) {
+        std::cerr << "Failed to load Resources/frontwater.png\n";
+    }
 }
 
 void Player::initSprite()
 {
-    playersprite.emplace(texturestand);
-    playersprite->setPosition({270.f, 175.f});
-    playersprite->setScale({2.f, 2.f});
+    playerSprite.emplace(texturestand);
+    playerSprite->setPosition({270.f, 175.f});
+    playerSprite->setScale({2.f, 2.f});
 }
 
 void Player::handleMovement(float delta) {
     int speed = 150;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
     {
-        playersprite->move({-(speed * delta), 0});
-        playersprite->setTexture(texturestand);
-        
+        playerSprite->move({-(speed * delta), 0});
+        if (inPond) {
+            playerSprite->setTexture(texturewater);
+        }
+        else {
+            playerSprite->setTexture(texturestand);
+        }
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
     {
-        playersprite->move({speed * delta, 0});
-        playersprite->setTexture(texturestandright);
+        playerSprite->move({speed * delta, 0});
+        if(inPond) {
+            playerSprite->setTexture(texturewaterright);
+        }
+        else {
+            playerSprite->setTexture(texturestandright);
+        }   
     }
-
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
     {
-        playersprite->move({0, speed * delta});
-        playersprite->setTexture(texturefront);
-        
+        playerSprite->move({0, speed * delta});
+        if(inPond) {
+            playerSprite->setTexture(texturewaterfront);
+        }
+        else {
+            playerSprite->setTexture(texturefront);
+        }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
     {
-        playersprite->move({0, -(speed * delta)});
-        playersprite->setTexture(textureback);
+        playerSprite->move({0, -(speed * delta)});
+        if(inPond) {
+            playerSprite->setTexture(texturewaterback);
+        }
+        else {
+            playerSprite->setTexture(textureback);
+        }
     }
 }

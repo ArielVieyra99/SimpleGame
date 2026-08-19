@@ -1,4 +1,3 @@
-#pragma once
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -38,7 +37,7 @@ class Game {
     void setPondArea();
     void inPondBounds();
     void setPondBounds();
-    void handleMovement(float delta);
+    bool inAnyTriangle(sf::Vector2f point, std::string name = {});
 
     public:
         //Contructor and Desctructor

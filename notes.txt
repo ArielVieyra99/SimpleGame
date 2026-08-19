@@ -5,6 +5,15 @@ NEW IDEA: Duckling in a pond					- done
 /Users/arielvieyra/Developer/CppCode/SimpleGame/Game.h
 
 
+Think of ways to make the make triangles function not be so long
+The bound function workds only for the upper left side of the rectangle, what would be a way to make that simple Make it comprar against also the right side? The top and bottom?
+Then should i make that function take in the local bounds? Will that be too much computation?
+Part of me thinks that not the case, its only a few multiplications, i should make sure that there not too much copying of information
+Is there a way to draw the outline of my png for each of the texutres, is the bounds depending onthe size i set for the sprite or does its size depend on each texture? How do I make them all allign at least i know they are all similar since i made them all
+}
+
+
+
 ake s
 
 -

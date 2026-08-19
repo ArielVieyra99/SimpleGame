@@ -1,4 +1,4 @@
-#pragma once
+
 #include "Game.h"
 #include <SFML/Graphics.hpp>
 
@@ -21,9 +21,11 @@ bool inTriangle(sf::VertexArray& tri, sf::Vector2f p) {
 void Game::initVariables()
 {
     player.health = 100;
-    rectangle.setSize({25, 25});
-    rectangle.setPosition({100,100});
+    rectangle.setSize({player.playerSprite->getGlobalBounds().size.x,
+         player.playerSprite->getGlobalBounds().size.y});
+    rectangle.setPosition({0,0});
     rectangle.setFillColor(sf::Color::Blue);
+
     
 }
 
@@ -38,7 +40,7 @@ Game::Game() {
     initTextures();
     initSprites();
     makeTriangles();
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(90);
 }
 
 
@@ -72,12 +74,12 @@ void Game::update()
     //handle movement
     delta = clock.restart().asSeconds();
     // player.handleMovement(delta);
-    handleMovement(delta);
+    player.handleMovement(delta);
     this->pollEvents();
-    
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl)) {
-        inPondBounds();
-    }
+    inPondBounds();
+    rectangle.setSize({player.playerSprite->getGlobalBounds().size.x,
+                        player.playerSprite->getGlobalBounds().size.y});
+    rectangle.setPosition(player.playerSprite->getPosition());
 
 }
 
@@ -85,12 +87,12 @@ void Game::render()
 {
     window.clear(sf::Color(126, 163, 105));
     window.draw(*pond);
-    window.draw(tri1);
-    window.draw(tri2);
-    window.draw(tri3);
-    window.draw(tri4);
-    window.draw(rectangle);
-    window.draw(*player.playersprite);
+    // window.draw(tri1);
+    // window.draw(tri2);
+    // window.draw(tri3);
+    // window.draw(tri4);
+    // window.draw(rectangle);
+    window.draw(*player.playerSprite);
     window.display();
 }
 
@@ -117,14 +119,18 @@ void Game::initSprites() {
 }
 
 void Game::inPondBounds() {
-    if(inTriangle(tri1, player.playersprite->getPosition())
-    || inTriangle(tri2, player.playersprite->getPosition())
-    || inTriangle(tri3, player.playersprite->getPosition())
-    || inTriangle (tri4, player.playersprite->getPosition())) {
-    std::cout << "the player is in the triangle" << std::endl;
+    sf::FloatRect bounds = player.playerSprite->getGlobalBounds();
+    sf::Vector2f playerLeft = bounds.position;
+    sf::Vector2f playerRight = {bounds.position.x + bounds.size.x, bounds.position.y};
+    sf::Vector2f playerBottom = {bounds.position.x, bounds.position.y + bounds.size.y};
+
+    if(inAnyTriangle(playerLeft, "playerLeft") &&
+        inAnyTriangle(playerRight, "playerRight") &&
+        inAnyTriangle(playerBottom, "playerBottom")) {
+            player.inPond = true;
     }
     else {
-    std::cout << "the player is not in the triangle" << std::endl;
+        player.inPond = false;
     }
 }
 
@@ -189,25 +195,17 @@ void Game::makeTriangles() {
     tri4[3].color = sf::Color::Red;
 
 }
-void Game::handleMovement(float delta) {
-    int speed = 150;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
-    {
-        rectangle.move({-(speed * delta), 0});
-        
+bool Game::inAnyTriangle(sf::Vector2f point, std::string name) {
+    if (inTriangle(tri1,point) ||
+        inTriangle(tri2,point) ||
+        inTriangle(tri3,point) ||
+        inTriangle(tri4,point)) {
+                std::cout << "the point: " << name << " is in some valid triangle" << std::endl;
+                return true;
+            }
+    else {
+        std::cout << "the point: " << name << " is not in any valid triangle" << std::endl;
+        return false;
     }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
-    {
-        rectangle.move({speed * delta, 0});
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-    {
-        rectangle.move({0, speed * delta});        
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-    {
-        rectangle.move({0, -(speed * delta)});
-    }
+    
 }

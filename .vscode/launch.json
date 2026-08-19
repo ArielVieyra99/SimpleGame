@@ -1,16 +1,17 @@
 {
-    "version":"0.2.0",
+    "version": "0.2.0",
     "configurations": [
-
         {
-            "name": "Run SFML",
+            "name": "Debug SmallGame",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/smallgame",
             "args": [],
-            "cwd": "${fileDirname}",
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
             "MIMode": "lldb",
-            "externalConsole": true,
             "preLaunchTask": "Build with SFML"
         }
     ]

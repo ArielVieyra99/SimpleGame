@@ -9,18 +9,20 @@ class Player : public Character {
     sf::Texture texturewater;
     sf::Texture texturewaterright;
     sf::Texture textureback;
-    sf::Texture texturebackwater;
     sf::Texture texturefront;
+    sf::Texture texturewaterfront;
+    sf::Texture texturewaterback;
+    
     
 
     void initTextures();
     void initSprite();
-    bool inPond();
     
     public:
     Player();
     int score, credits;
-    std::optional<sf::Sprite> playersprite;
+    std::optional<sf::Sprite> playerSprite;
+    bool inPond;
 
     void handleMovement (float delta);
     sf::Texture getTexture();
