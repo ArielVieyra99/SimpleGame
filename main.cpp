@@ -12,6 +12,5 @@ int main() {
         game.update();
         game.render();
 
-
     }
 }

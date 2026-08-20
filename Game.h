@@ -1,27 +1,22 @@
+#pragma once
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <SFML/System.hpp>
+#include <iostream>
 #include "Player.h"
 
 
 class Game {
     private:
     sf::RenderWindow window;
-    sf::VideoMode videoMode;
     sf::Texture pondtexture;
-    std::optional <sf::Sprite> pond;
-    sf::VertexArray tri1{sf::PrimitiveType::LineStrip,4};
-    sf::VertexArray tri2{sf::PrimitiveType::LineStrip,4};
-    sf::VertexArray tri3{sf::PrimitiveType::LineStrip,4};
-    sf::VertexArray tri4{sf::PrimitiveType::LineStrip,4};
+    std::optional <sf::Sprite> pool;
     sf::Font font;
     sf::Clock clock;
     Player player;
     float delta;
     float mouseposx, mouseposy;
     sf::VertexArray tri6{sf::PrimitiveType::LineStrip};
-    sf::RectangleShape rectangle;
 
 
     
@@ -33,11 +28,7 @@ class Game {
     void initTextures ();
     void initSprites();
     void handlePlayerMovement();
-    void makeTriangles();
     void setPondArea();
-    void inPondBounds();
-    void setPondBounds();
-    bool inAnyTriangle(sf::Vector2f point, std::string name = {});
 
     public:
         //Contructor and Desctructor

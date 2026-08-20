@@ -38,7 +38,7 @@ void Player::initSprite()
 {
     playerSprite.emplace(texturestand);
     playerSprite->setPosition({270.f, 175.f});
-    playerSprite->setScale({2.f, 2.f});
+    playerSprite->setScale({1.5f, 1.5f});
 }
 
 void Player::handleMovement(float delta) {
