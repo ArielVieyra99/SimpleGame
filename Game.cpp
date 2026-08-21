@@ -6,7 +6,14 @@
 
 void Game::initVariables()
 {
-    player.health = 100;    
+    player.health = 100;
+    boundsrect.setSize({385, 290});
+    boundsrect.setPosition({107,55}); 
+    boundsrect.setOutlineColor(sf::Color::Red);
+    boundsrect.setFillColor(sf::Color::Transparent);
+    boundsrect.setOutlineThickness(1.f);
+    bounds.setSize(boundsrect.getSize());
+    bounds.setPosition( boundsrect.getPosition()) ;
 }
 
 void Game::initWindow() {
@@ -19,7 +26,6 @@ Game::Game() {
     initWindow();
     initTextures();
     initSprites();
-    makeTriangles();
     window.setFramerateLimit(90);
 }
 
@@ -61,8 +67,10 @@ void Game::update()
 void Game::render()
 {
     window.clear(sf::Color(126, 163, 105));
+    
     window.draw(*pool);
     window.draw(*player.playerSprite);
+    window.draw(boundsrect);
     window.display();
 }
 
@@ -76,15 +84,13 @@ void Game::initTextures () {
 void Game::initSprites() {
     pool.emplace(pondtexture);
     pool->setOrigin({
-        getGlobalBounds().x / 2,
-        getGlobalBounds().y / 2
+        pool->getGlobalBounds().size.x / 2,
+        pool->getGlobalBounds().size.y / 2
     });
-
     pool->setPosition({static_cast<float>((window.getSize().x)/2.0),
     static_cast<float>((window.getSize().y)/2.0)});
     pool->setScale({1.5,1.5});
 }
-
 
 void Game::setPondBounds() {
     if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LControl)) {
@@ -101,5 +107,9 @@ void Game::setPondBounds() {
             }
         );
     }
+}
+
+bool Game::inBounds() {
+    return bounds.contains(player.playerSprite->getPosition());
 }
 

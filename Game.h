@@ -17,10 +17,8 @@ class Game {
     float delta;
     float mouseposx, mouseposy;
     sf::VertexArray tri6{sf::PrimitiveType::LineStrip};
-
-
-    
-
+    sf::RectangleShape boundsrect;
+    sf::Rec<float> bounds {(10.f,10.f), (10.f,10.f)};
 
     //Functions
     void initVariables();
@@ -29,6 +27,8 @@ class Game {
     void initSprites();
     void handlePlayerMovement();
     void setPondArea();
+    void setPondBounds();
+    bool inBounds();
 
     public:
         //Contructor and Desctructor
