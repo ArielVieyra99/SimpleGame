@@ -12,8 +12,8 @@ void Game::initVariables()
     boundsrect.setOutlineColor(sf::Color::Red);
     boundsrect.setFillColor(sf::Color::Transparent);
     boundsrect.setOutlineThickness(1.f);
-    bounds.setSize(boundsrect.getSize());
-    bounds.setPosition( boundsrect.getPosition()) ;
+    bounds.size = boundsrect.getSize();
+    bounds.position =  boundsrect.getPosition();
 }
 
 void Game::initWindow() {
@@ -62,6 +62,12 @@ void Game::update()
     // player.handleMovement(delta);
     player.handleMovement(delta);
     this->pollEvents();
+    if(inBounds()) {
+        player.inBounds= true;
+    }
+    else {
+        player.inBounds = false;
+    }
 }
 
 void Game::render()
@@ -110,6 +116,12 @@ void Game::setPondBounds() {
 }
 
 bool Game::inBounds() {
-    return bounds.contains(player.playerSprite->getPosition());
+    sf::Vector2f topLeft = player.playerSprite->getPosition();
+    sf::Vector2f topRight = {topLeft.x + player.playerSprite->getGlobalBounds().size.x, topLeft.y};
+    sf::Vector2f bottomleft = {topLeft.x, topLeft.y + player.playerSprite->getGlobalBounds().size.y};
+    return (bounds.contains(topLeft)
+            || bounds.contains(topRight)
+            || bounds.contains(bottomleft)
+            );
 }
 

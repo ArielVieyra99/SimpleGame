@@ -22,7 +22,7 @@ class Player : public Character {
     Player();
     int score, credits;
     std::optional<sf::Sprite> playerSprite;
-    bool inPond;
+    bool inBounds;
 
     void handleMovement (float delta);
     sf::Texture getTexture();

@@ -46,7 +46,7 @@ void Player::handleMovement(float delta) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
     {
         playerSprite->move({-(speed * delta), 0});
-        if (inPond) {
+        if (inBounds) {
             playerSprite->setTexture(texturewater);
         }
         else {
@@ -57,7 +57,7 @@ void Player::handleMovement(float delta) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
     {
         playerSprite->move({speed * delta, 0});
-        if(inPond) {
+        if(inBounds) {
             playerSprite->setTexture(texturewaterright);
         }
         else {
@@ -67,7 +67,7 @@ void Player::handleMovement(float delta) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
     {
         playerSprite->move({0, speed * delta});
-        if(inPond) {
+        if(inBounds) {
             playerSprite->setTexture(texturewaterfront);
         }
         else {
@@ -77,7 +77,7 @@ void Player::handleMovement(float delta) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
     {
         playerSprite->move({0, -(speed * delta)});
-        if(inPond) {
+        if(inBounds) {
             playerSprite->setTexture(texturewaterback);
         }
         else {

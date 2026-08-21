@@ -18,7 +18,7 @@ class Game {
     float mouseposx, mouseposy;
     sf::VertexArray tri6{sf::PrimitiveType::LineStrip};
     sf::RectangleShape boundsrect;
-    sf::Rec<float> bounds {(10.f,10.f), (10.f,10.f)};
+    sf::Rect<float> bounds {};
 
     //Functions
     void initVariables();
