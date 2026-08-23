@@ -4,6 +4,7 @@
 #include <SFML/System.hpp>
 #include <iostream>
 #include "Player.h"
+#include "Robot.h"
 
 
 class Game {
@@ -19,6 +20,8 @@ class Game {
     sf::VertexArray tri6{sf::PrimitiveType::LineStrip};
     sf::RectangleShape boundsrect;
     sf::Rect<float> bounds {};
+    Robot robot1;
+
 
     //Functions
     void initVariables();

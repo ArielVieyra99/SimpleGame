@@ -19,8 +19,3 @@ public:
     }
 };
 
-
-
-class Enemy : public Character {
-    int normalDamage, heavyDamage;
-};

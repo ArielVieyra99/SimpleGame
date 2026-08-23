@@ -6,7 +6,12 @@ Robot::Robot() {
     health = 200;
 }
 void Robot::handleMovement(sf::FloatRect confinement) {
-    if(!confinement.contains(robotSprite->getPosition()));
+    if(!confinement.contains(robotSprite->getPosition())) {
+        inBounds = true;
+    }
+    else {
+        inBounds = false;
+    }
 }
 
 void Robot::initTextures() {

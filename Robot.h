@@ -5,7 +5,7 @@ class Robot : public Enemy {
     public:
     sf::Texture robotTexture;
     std::optional <sf::Sprite> robotSprite;
-    std::vector <
+    std::vector <projectile> projectileList;
 
     Robot();
 
@@ -13,13 +13,17 @@ class Robot : public Enemy {
     void initTextures();
     void initSprites();
     private:
+    bool inBounds;
 };
 
 class projectile : private Robot {
-    sf::Texture bubbleTexture;
-    if(!(bubbleTexture.loadFromFile("Resources/enemies/robotBubble.png")) {
-        std::cout << "Failed to load: Resources/enemies/robotBubble.png" << std::endl;
+    // sf::Texture bubbleTexture;
+    void init() {
+        sf::Texture bubbleTexture;
+        if(!bubbleTexture.loadFromFile("Resources/enemies/robotBubble.png")) {
+            std::cout << "Failed to load image Resources/enemies/robotBubble.png" << std::endl;
+        }
     }
-    sf::Sprite projectile()
+    sf::Sprite bubbleSprite;
 };
 

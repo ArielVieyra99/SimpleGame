@@ -76,6 +76,7 @@ void Game::render()
     
     window.draw(*pool);
     window.draw(*player.playerSprite);
+    window.draw(*robot1.robotSprite);
     window.draw(boundsrect);
     window.display();
 }
