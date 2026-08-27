@@ -11,6 +11,7 @@
                 "main.cpp",
                 "game.cpp",
                 "player.cpp",
+                "Robot.cpp",
                 "-I/opt/homebrew/include",
                 "-L/opt/homebrew/lib",
                 "-lsfml-graphics",

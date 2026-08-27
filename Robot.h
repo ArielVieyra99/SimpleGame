@@ -1,6 +1,19 @@
 #include "Enemy.h"
 
 
+class projectile {
+    // sf::Texture bubbleTexture;
+    void init() {
+        sf::Texture bubbleTexture;
+        if(!bubbleTexture.loadFromFile("Resources/enemies/robotBubble.png")) {
+            std::cout << "Failed to load image Resources/enemies/robotBubble.png" << std::endl;
+        }
+    }
+    sf::Sprite bubbleSprite;
+};
+
+
+
 class Robot : public Enemy {
     public:
     sf::Texture robotTexture;
@@ -14,16 +27,5 @@ class Robot : public Enemy {
     void initSprites();
     private:
     bool inBounds;
-};
 
-class projectile : private Robot {
-    // sf::Texture bubbleTexture;
-    void init() {
-        sf::Texture bubbleTexture;
-        if(!bubbleTexture.loadFromFile("Resources/enemies/robotBubble.png")) {
-            std::cout << "Failed to load image Resources/enemies/robotBubble.png" << std::endl;
-        }
-    }
-    sf::Sprite bubbleSprite;
 };
-

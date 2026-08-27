@@ -7,6 +7,7 @@
 void Game::initVariables()
 {
     player.health = 100;
+    robot.robotSprite->setPosition({150.f, 150.f});
     boundsrect.setSize({385, 290});
     boundsrect.setPosition({107,55}); 
     boundsrect.setOutlineColor(sf::Color::Red);
@@ -17,7 +18,7 @@ void Game::initVariables()
 }
 
 void Game::initWindow() {
-    window.create(sf::VideoMode({600, 400}), "Test 2");
+    window.create(sf::VideoMode({600, 600}), "Test 2");
 }
 
 
@@ -76,8 +77,8 @@ void Game::render()
     
     window.draw(*pool);
     window.draw(*player.playerSprite);
-    window.draw(*robot1.robotSprite);
-    window.draw(boundsrect);
+    window.draw(*robot.robotSprite);
+    // window.draw(boundsrect);
     window.display();
 }
 

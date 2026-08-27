@@ -15,7 +15,7 @@ void Robot::handleMovement(sf::FloatRect confinement) {
 }
 
 void Robot::initTextures() {
-    if(!robotTexture.loadFromFile("Resources/enemies/robot.png")) {
+    if(!robotTexture.loadFromFile("Resources/enemies/Robot.png")) {
         std::cout << "Failed to load: Resources/enemies/robot.png" << std::endl;
     }
 }

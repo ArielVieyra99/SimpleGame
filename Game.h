@@ -20,7 +20,7 @@ class Game {
     sf::VertexArray tri6{sf::PrimitiveType::LineStrip};
     sf::RectangleShape boundsrect;
     sf::Rect<float> bounds {};
-    Robot robot1;
+    Robot robot;
 
 
     //Functions
