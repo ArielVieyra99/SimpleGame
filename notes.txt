@@ -107,6 +107,8 @@ Coordinates pond:
 	Blender video
 
 	https://www.youtube.com/watch?v=K7__BjW4UWE
+	another blende video }
+	https://www.youtube.com/watch?v=XEaoHoH4qf0
 
 	set up c++ with xcode 
 	https://www.youtube.com/watch?v=fN16YYOr_e4
